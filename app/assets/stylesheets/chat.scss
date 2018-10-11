@@ -1,70 +1,23 @@
-.content-right {
-  width: calc(100vw - 300px);
+html {
   height: 100vh;
-  float: right;
-  position: relative;
-  background-color: white;
-  color: black;
 }
 
-.group {
-  padding: 35px 40px 5px 40px;
-  border-bottom: solid 1px;
-  border-color: #AAAAAA;
-  position: relative;
-  &__name {
-    font-size: 20px;
-    color: #333333;
-    padding-bottom: 15px;
-    float: left;
-  }
-  &__member {
-    font-size: 12px;
-    color: #999999;
-    clear: both;
-  }
-  &__btn {
-    border: solid;
-    border-color: #38AEF0;
-    line-height: 40px;
-    color: #38AEF0;
-    position: absolute;
-    top: 28px;
-    right: 40px;
-    padding-right: 20px;
-    padding-left: 20px;
-    // float: right;
-  }
+body {
+  height: 100vh;
+  margin: 0;
 }
 
-.chat-content {
-  background-color: #AAAAAA;
-  height: calc(100vh - 70px);
+.header {
+  background-color:#38AEF0;
+  width: 100vw;
+  height: 30px;
+  text-align: center;
+  color: white;
 }
 
-.chat{
-  padding: 46px 40px 0px 40px;
-  &__user {
-    font-weight: bold;
-    font-size: 16px;
-    color: #434A54;
-    float: left;
-    padding-right: 10px;
-    line-height: 16px;
-  }
-  &__date {
-    float: left;
-    font-size: 12px;
-    color: #999999;
-    line-height: 16px;
-  }
-  &__content {
-    clear: both;
-    padding-top: 10px;
-    font-size: 14px;
-    color: #434A54;
-    padding-bottom: 40px;
-  }
+.contents {
+  width: 100vw;
+  height: 100vh;
 }
 
 .bottom-content{

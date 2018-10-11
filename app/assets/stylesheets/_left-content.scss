@@ -1,0 +1,40 @@
+.content-left{
+  width: 300px;
+  height: 100vh;
+  float: left;
+  position: relative;
+}
+
+.top{
+  height: 60px;
+  background-color: #253141;
+  font-size: 16px;
+  color: white;
+  padding-top: 36px;
+  padding-left: 20px;
+  padding-right: 20px;
+      .user {
+        float: left;
+        width: 200px;
+        /*padding-right: 150px;*/
+      }
+      i {
+        /*padding-right: 20px;*/
+        float: left;
+        width: 30px;
+      }
+}
+
+.groups{
+  color: white;
+  background-color: #2f3e51;
+  height: 100vh;
+  padding-left: 20px;
+  padding-top: 20px;
+  font-size: 15px;
+          &__messages {
+            padding-top: 5px;
+            font-size:11px;
+            padding-bottom: 40px;
+          }
+}
