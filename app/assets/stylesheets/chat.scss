@@ -1,0 +1,118 @@
+.content-right {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  float: right;
+  position: relative;
+  background-color: white;
+  color: black;
+}
+
+.group {
+  padding: 35px 40px 5px 40px;
+  border-bottom: solid 1px;
+  border-color: #AAAAAA;
+  position: relative;
+  &__name {
+    font-size: 20px;
+    color: #333333;
+    padding-bottom: 15px;
+    float: left;
+  }
+  &__member {
+    font-size: 12px;
+    color: #999999;
+    clear: both;
+  }
+  &__btn {
+    border: solid;
+    border-color: #38AEF0;
+    line-height: 40px;
+    color: #38AEF0;
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    // float: right;
+  }
+}
+
+.chat-content {
+  background-color: #AAAAAA;
+  height: calc(100vh - 70px);
+}
+
+.chat{
+  padding: 46px 40px 0px 40px;
+  &__user {
+    font-weight: bold;
+    font-size: 16px;
+    color: #434A54;
+    float: left;
+    padding-right: 10px;
+    line-height: 16px;
+  }
+  &__date {
+    float: left;
+    font-size: 12px;
+    color: #999999;
+    line-height: 16px;
+  }
+  &__content {
+    clear: both;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #434A54;
+    padding-bottom: 40px;
+  }
+}
+
+.bottom-content{
+  background-color: gray;
+  padding: 20px 40px;
+  position: absolute;
+  bottom: -115px;
+  width: calc(100vw - 380px);
+  /*height: 100vh;*/
+}
+.submit {
+  background-color: white;
+  position: relative;
+  width: calc(100vw - 500px);
+  &__content {
+    width: calc(100vw - 510px);
+    font-size: 16px;
+    line-height: 50px;
+    padding-left: 10px;
+    // display: inline-block;
+    border: 0px;
+    // float: left;
+  }
+  &__btn {
+    background-color:#38AEF0;
+    color: white;
+    line-height: 50px;
+    bottom: 25px;
+    border: #38AEF0;
+    cursor: pointer;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    right: -115px;
+    width: 100px;
+  }
+
+}
+.image{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
