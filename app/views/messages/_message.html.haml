@@ -1,0 +1,9 @@
+.chat-box
+  .chat
+    %p.chat__user
+      = message.user.name
+    %p.chat__date aa
+    - if message.content.present?
+      %p.chat__content
+        =message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

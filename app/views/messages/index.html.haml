@@ -4,21 +4,32 @@
 
   .content-right
     .group
-      %p.group__name asa
-      %p.group__member Members: aa
-      %p.group__btn Edit
+      %p.group__name
+        = @group.name
+      %p.group__member
+        MEMBER:
+        = @group.users.pluck(:name).join(",")
+      =link_to edit_group_path(@group) do
+        %p.group__btn Edit
 
     .chat-content
-      = render partial: "chat"
+      = render partial: "message", collection: @messages
 
 
     .bottom-content
       .submit
-        %form
-          %input.text{:type => "text", :placeholder => "type a message", :class => "submit__content"}
-            .image
-              %label.upload-label{for: "upload-icon"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = f.file_field :image, class: 'hidden'
               %i.far.fa-image
-                / = file_field :image, id: "upload-icon" ,:class => "ignore"
-          %input.send{:type => "submit", :value => "Send" , :class => "submit__btn"}
+          = f.submit 'Send', class: 'form__submit'
+        / %form
+        /   %input.text{:type => "text", :placeholder => "type a message", :class => "submit__content"}
+        /     .image
+        /       %label.upload-label{for: "upload-icon"}
+        /       %i.far.fa-image
+        /         / = file_field :image, id: "upload-icon" ,:class => "ignore"
+        /   %input.send{:type => "submit", :value => "Send" , :class => "submit__btn"}
 
