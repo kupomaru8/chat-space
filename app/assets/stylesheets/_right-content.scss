@@ -41,9 +41,7 @@
 .chat-pad
 .chat-content {
   background-color: #AAAAAA;
-  // min-height: 100vh
   height: calc(100vh - 90px);
-  // height: calc(100vh - 190px);
   overflow: auto;
   padding-top: 100px;
   padding-bottom: 100px;
