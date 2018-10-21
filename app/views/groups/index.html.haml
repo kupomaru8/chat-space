@@ -7,9 +7,9 @@
       %p.group__name asa
       %p.group__member Members: aa
       %p.group__btn Edit
-
-    .chat-content
-      = render partial: "messages/message", collection: @messages
+    .chat-pad
+      .chat-content
+        = render partial: "messages/message", collection: @messages
 
 
     / .bottom-content
