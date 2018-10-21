@@ -11,7 +11,9 @@
   padding: 35px 40px 5px 40px;
   border-bottom: solid 1px;
   border-color: #AAAAAA;
-  position: relative;
+  position: fixed;
+  width: calc(100vw - 380px);
+  background-color: white;
   &__name {
     font-size: 20px;
     color: #333333;
@@ -36,10 +38,13 @@
     // float: right;
   }
 }
-
+.chat-pad
 .chat-content {
   background-color: #AAAAAA;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 90px);
+  overflow: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .chat{
