@@ -24,9 +24,9 @@
     / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
     /
       <div id='chat-group-users'>
-      <div class='chat-group-user clearfix' id='chat-group-user-22'>
-      <input name='chat_group[user_ids][]' type='hidden' value='22'>
-      <p class='chat-group-user__name'>seo_kyohei</p>
+      <div class='chat-group-user clearfix' id="chat-group-user-#{current_user.id}">
+      <input name='chat_group[user_ids][]' type='hidden' value="#{current_user.id}">
+      <p class='chat-group-user__name'><%=current_user.name></p>
       </div>
       </div>
   .chat-group-form__field.clearfix
