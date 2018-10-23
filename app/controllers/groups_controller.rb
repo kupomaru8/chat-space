@@ -29,6 +29,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    @users = User.where.not(id: current_user.id).where('name LIKE(?)',"%#{params[:keyword]}%").limit(20)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def group_params
     params.require(:group).permit(:name, { :user_ids => []})
