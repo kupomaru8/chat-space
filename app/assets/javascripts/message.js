@@ -43,24 +43,33 @@ $(function(){
 
   var interval = setInterval(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
-    $.ajax({
-      type: 'GET',
-      url: location.href,
-      dataType: 'json'
-    })
-    .done(function(data){
-      var id = $(".chat").data("messageId");
-      var insertHTML = "";
-      data.messages.forEach(function(message){
-        if (message.id > id) {
+
+        var message_id = $('.chat:first').data('id');
+
+
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        data: {
+          message:{id: message_id}
+        },
+        dataType: 'json'
+      })
+      .done(function(data){
+        // var id = $(".chat").data("messageId");
+        var insertHTML = "";
+        data.messages.forEach(function(message){
           insertHTML = buildHTML(message);
-        }
+          // }
+          // if (message.id > id) {
+          //   insertHTML = buildHTML(message);
+          // }
+        });
+        $('.chat-content').prepend(insertHTML);
+      })
+      .fail(function(data){
+        // alert("自動更新に失敗しました");
       });
-      $('.chat-content').prepend(insertHTML);
-    })
-    .fail(function(data){
-      alert("自動更新に失敗しました");
-    });
   } else {
     clearInterval(interval);
   }},5000);

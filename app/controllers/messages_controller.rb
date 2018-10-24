@@ -6,7 +6,12 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user).order(created_at: :DESC)
     respond_to do |format|
       format.html
-      format.json
+      format.json{ @new_messages = @messages.where('id > ?', params[:message][:id])
+        if @new_messages.present?
+          @new_messages
+        else
+          render json: "No data"
+        end }
     end
   end
 
