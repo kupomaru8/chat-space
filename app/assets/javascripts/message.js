@@ -56,14 +56,9 @@ $(function(){
         dataType: 'json'
       })
       .done(function(data){
-        // var id = $(".chat").data("messageId");
         var insertHTML = "";
         data.messages.forEach(function(message){
           insertHTML = buildHTML(message);
-          // }
-          // if (message.id > id) {
-          //   insertHTML = buildHTML(message);
-          // }
         });
         $('.chat-content').prepend(insertHTML);
       })
