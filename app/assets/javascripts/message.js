@@ -5,7 +5,7 @@ $(function(){
       insertImage = `<img src = "${message.image.url}" class= "lower-message__image">`;
     }
     var html =`<div class="chat-box">
-                  <div class="chat">
+                  <div class="chat" data-message-id="${message.id}">
                     <p class="chat__user">
                       ${message.user_name}
                     </p>
@@ -40,4 +40,32 @@ $(function(){
       alert('error');
     })
   })
+
+  var interval = setInterval(function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+
+        var message_id = $('.chat:first').data('id');
+
+
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        data: {
+          message:{id: message_id}
+        },
+        dataType: 'json'
+      })
+      .done(function(data){
+        var insertHTML = "";
+        data.messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+        });
+        $('.chat-content').prepend(insertHTML);
+      })
+      .fail(function(data){
+        // alert("自動更新に失敗しました");
+      });
+  } else {
+    clearInterval(interval);
+  }},5000);
 });
