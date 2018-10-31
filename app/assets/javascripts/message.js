@@ -1,13 +1,16 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   function buildHTML(message){
     var insertImage = '';
     if (message.image.url) {
       insertImage = `<img src = "${message.image.url}" class= "lower-message__image">`;
     }
     var html =`<div class="chat-box">
-                  <div class="chat" data-message-id="${message.id}">
+                  <div class="chat" data-id="${message.id}">
                     <p class="chat__user">
                       ${message.user_name}
+                    </p>
+                    <p class="chat__date">
+                    ${message.date}
                     </p>
                     <p class="chat__content">
                       ${message.content}
@@ -30,11 +33,11 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chat-content').prepend(html)
+      $('.chat-content').append(html)
       $('.textbox').val('')
       $('.imagebox').val('')
       $('.form__submit').attr('disabled',false)
-      $('.chat-content').animate({scrollTop: 0}, 500, 'swing');
+      // $('.chat-content').animate({scrollTop: 0}, 500, 'swing');
     })
     .fail(function(){
       alert('error');
@@ -44,7 +47,7 @@ $(function(){
   var interval = setInterval(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
 
-        var message_id = $('.chat:first').data('id');
+        var message_id = $('.chat:last').data('id');
 
 
       $.ajax({
@@ -60,9 +63,10 @@ $(function(){
         data.messages.forEach(function(message){
           insertHTML = buildHTML(message);
         });
-        $('.chat-content').prepend(insertHTML);
+        $('.chat-content').append(insertHTML);
       })
       .fail(function(data){
+        console.log(message_id);
         // alert("自動更新に失敗しました");
       });
   } else {

@@ -14,7 +14,7 @@
 
 
   .groups
-    - current_user.groups.each do |group|
+    - @groups.each do |group|
       = link_to group_messages_path(group) do
         %p.groups__name
           =group.name

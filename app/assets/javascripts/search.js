@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
 
 var search_list = $("#user-search-result");
 
@@ -21,7 +21,7 @@ function buildMemberHTML(id,name) {
                 <p class='chat-group-user__name'>${name}</p>
                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${id}">削除</a>
               </div>`;
-  return html
+  return html;
 }
 
   $("#user-search-field").on("keyup", function(){
@@ -35,6 +35,7 @@ function buildMemberHTML(id,name) {
       dataType: 'json'
     })
 
+
     .done(function(users){
       search_list.empty();
       if (users.length !== 0) {
@@ -43,7 +44,7 @@ function buildMemberHTML(id,name) {
         });
       }
       else {
-        appendNoUser("一致するUserはいません")
+        appendNoUser("一致するUserはいません");
       }
     })
     .fail(function(){
