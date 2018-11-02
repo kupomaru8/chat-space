@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function() {
       $('.imagebox').val('')
       $('.form__submit').attr('disabled',false)
       // $('.groups__messages').html(message_content)
-      // $('.chat-content').animate({scrollTop: $('.chat-content')[0].scrollHeight}, 500, 'swing');
+      $('.chat-content').animate({scrollTop: $('.chat-content')[0].scrollHeight}, 500, 'swing');
     })
     .fail(function(){
       alert('error');
