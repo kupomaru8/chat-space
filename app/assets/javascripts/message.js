@@ -19,6 +19,13 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
+  function buildGroupHTML(message){
+    var groupHtml =`<p class="groups__messages">
+                      ${message.content}
+                    </p>`
+    return groupHtml;
+  }
+
   $('#new_massage').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -33,12 +40,15 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data){
       var html = buildHTML(data);
-      // var message_content = $('message.content')
+      // var groupHtml = buildGroupHTML(data);
+      console.log(data.group_id);
+      var current_group_id = data.group_id;
       $('.chat-content').append(html)
       $('.textbox').val('')
       $('.imagebox').val('')
       $('.form__submit').attr('disabled',false)
-      // $('.groups__messages').html(message_content)
+      // $('.groups__messages').html(groupHtml)
+      // $('.groups__messages').html(data.content);
       $('.chat-content').animate({scrollTop: $('.chat-content')[0].scrollHeight}, 500, 'swing');
     })
     .fail(function(){

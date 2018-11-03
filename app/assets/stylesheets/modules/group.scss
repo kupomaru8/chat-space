@@ -82,6 +82,7 @@
     line-height: 50px;
     font-size: 14px;
     border-bottom: 1px solid #ddd;
+    margin-left: 270px;
     &:after {
       content: "";
       clear: both;
@@ -104,6 +105,19 @@
       &.chat-group-user__btn--remove {
         color: #f05050;
       }
+    }
+  }
+
+    .chat-group-user1 {
+    padding: 0 15px;
+    line-height: 50px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    margin-left: 270px;
+    &:after {
+      content: "";
+      clear: both;
+      display: block;
     }
   }
 

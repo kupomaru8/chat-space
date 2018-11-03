@@ -64,6 +64,6 @@ function buildMemberHTML(id,name) {
 
   $(".chat-group-users").on("click",".user-search-remove",function(){
     var id = $(this).data('userId');
-    $(".chat-group-user").remove();
+    $(`#chat-group-user-${id}`).remove();
   })
 });
